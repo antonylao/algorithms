@@ -1,5 +1,5 @@
 export function sortToTest(unsortedList: any[]) {
-  return insertionSort(unsortedList)
+  return selectionSort(unsortedList)
 }
 
 /*
@@ -29,3 +29,32 @@ export function insertionSort(unsortedList: any[]) {
 }
 
 
+/*
+  * @algorithm: 
+  * initialize startIdxUnsorted to 0 (start of unsorted pile)
+  * find the smallest elt (use a minEltIdx var)
+  * swap it elt at minEltIdx with the one at startIdxUnsorted
+  * add 1 to startIdxUnsorted (we have sorted one more elt, so the unsorted pile shrinks by 1) 
+  * continue until startIdxUnsorted > last index of unsortedList
+  *
+  * @notes: NOT stable (elt at startIdxUnsorted can be swapped with an elt equal to it from the unsorted pile), 
+  * in-place (mutation of unsorted list)
+  *
+  * @complexity: O(n * (n+1) / 2) (arithmetic sequence) ~ O(n^2), where n is the number of elts of the unsorted list
+*/
+export function selectionSort(unsortedList: any[]) {
+  for (let startIdxUnsorted = 0; startIdxUnsorted < unsortedList.length; startIdxUnsorted++) {
+    let minEltIdx = startIdxUnsorted
+    for (let currentIdx = startIdxUnsorted; currentIdx < unsortedList.length; currentIdx++) {
+      const currentMinElt = unsortedList[minEltIdx]
+      const currentElt = unsortedList[currentIdx]
+      if (currentElt < currentMinElt) {
+        minEltIdx = currentIdx
+      }
+    }
+
+    [unsortedList[startIdxUnsorted], unsortedList[minEltIdx]] = [unsortedList[minEltIdx], unsortedList[startIdxUnsorted]]
+  }
+
+  return unsortedList
+}

@@ -4,12 +4,16 @@ import {sortToTest} from "./sort";
 describe("sortToTest()", () => {
   it("sorts the list", () => {
     //setup
-    const unsortedList = [2, 5, 3, 1, 4]
+    const unsortedList1 = [2, 5, 3, 1, 4]
+    const unsortedList2 = [1, 2, 4, 5, 8, 9, 7, 3, 6]
     //apply
-    const sortedList = sortToTest(unsortedList)
-    const expected = [1, 2, 3, 4, 5]
+    const sortedList1 = sortToTest(unsortedList1)
+    const expectedSortedList1 = [1, 2, 3, 4, 5]
+    const sortedList2 = sortToTest(unsortedList2)
+    const expectedSortedList2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     //test
-    expect(sortedList).toStrictEqual(expected)
+    expect(sortedList1).toStrictEqual(expectedSortedList1)
+    expect(sortedList2).toStrictEqual(expectedSortedList2)
   })
   it("when empty list, returns empty list", () => {
     //setup
