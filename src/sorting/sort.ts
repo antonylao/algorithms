@@ -1,5 +1,5 @@
 export function sortToTest(unsortedList: any[]) {
-  return selectionSort(unsortedList)
+  return bubbleSort(unsortedList)
 }
 
 /*
@@ -63,15 +63,33 @@ export function selectionSort(unsortedList: any[]) {
 
 /*
   * @algorithm: 
-  * initialize a swapped var to false
-  * initialize a pointerInitialPos to 0
-  * initialize sortedPileIdx to last elt
-  * for pointer going from pointerInitialPos to sortedPileIdx:
+  * initialize swapped to false
+  * initialize lastIdx to last idx of list 
+  * do
+    * for pointer going from 0 to lastIdx - 1:
       * if the elt at pointer is < to the elt at pointer + 1:
-        * swap them, and 
+        * swap them, and assign `swapped` to true 
+  * while swapped is true 
+  * return list
   *
-  * @notes: stable ? in-place?
-    
-export function bubbleSort(unsortedList: any[]) {
-}
+  * @notes: stable, in-place
+  * @time-complexity: O(n * (n - 1) / 2) (arithmetic sequence) ~ O(n^2)
 */
+export function bubbleSort(unsortedList: any[]) {
+  let swapped = true
+  let lastIdx = unsortedList.length - 1
+  //at each pass, we decrement lastIdx by 1 because the last elt will be sorted
+  for (lastIdx; lastIdx >= 1; lastIdx--) {
+    swapped = false
+    //at each pass, we compare elts with the next one, so idx stops at lastIdx - 1
+    for (let idx = 0; idx < lastIdx; idx++) {
+      if (unsortedList[idx] > unsortedList[idx + 1]) {
+        swapped = true;
+        [unsortedList[idx], unsortedList[idx + 1]] = [unsortedList[idx + 1], unsortedList[idx]]
+      }
+    }
+    //is swapped is false, the list is sorted
+    if (swapped === false) {return unsortedList}
+  }
+  return unsortedList
+}
