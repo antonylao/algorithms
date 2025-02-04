@@ -6,7 +6,7 @@ export function sortToTest(unsortedList: any[]) {
   * @algorithm: 
   * for each item (from 2nd item) (NB: keep track of 'current' index), swap it to the one on the left until it is smaller or the index of the item is 0
   * @notes: stable, in-place (mutation of unsorted list)
-  * @complexity: O(n * (n-1) / 2) (arithmetic sequence) ~ O(n^2), where n is the number of elts of the unsorted list
+  * @time-complexity: O(n * (n-1) / 2) (arithmetic sequence) ~ O(n^2), where n is the number of elts of the unsorted list
 */
 export function insertionSort(unsortedList: any[]) {
   unsortedList.forEach(function swapWithLeftEltUntilLeftIsSmaller(elt, eltOriginalIdx) {
@@ -40,7 +40,7 @@ export function insertionSort(unsortedList: any[]) {
   * @notes: NOT stable (elt at startIdxUnsorted can be swapped with an elt equal to it from the unsorted pile), 
   * in-place (mutation of unsorted list)
   *
-  * @complexity: O(n * (n+1) / 2) (arithmetic sequence) ~ O(n^2), where n is the number of elts of the unsorted list
+  * @time-complexity: O(n * (n+1) / 2) (arithmetic sequence) ~ O(n^2), where n is the number of elts of the unsorted list
 */
 export function selectionSort(unsortedList: any[]) {
   for (let startIdxUnsorted = 0; startIdxUnsorted < unsortedList.length; startIdxUnsorted++) {
@@ -58,3 +58,20 @@ export function selectionSort(unsortedList: any[]) {
 
   return unsortedList
 }
+
+
+
+/*
+  * @algorithm: 
+  * initialize a swapped var to false
+  * initialize a pointerInitialPos to 0
+  * initialize sortedPileIdx to last elt
+  * for pointer going from pointerInitialPos to sortedPileIdx:
+      * if the elt at pointer is < to the elt at pointer + 1:
+        * swap them, and 
+  *
+  * @notes: stable ? in-place?
+    
+export function bubbleSort(unsortedList: any[]) {
+}
+*/
