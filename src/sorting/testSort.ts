@@ -1,7 +1,7 @@
-import {selectionSort} from "./sort"
+import {bubbleSort, selectionSort} from "./basicSorts"
 
 export function sortToTest(unsortedList: any[]) {
-  return selectionSort(unsortedList)
+  return bubbleSort(unsortedList)
 }
 
 

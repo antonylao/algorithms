@@ -73,11 +73,9 @@ export function selectionSort(list: any[]) {
   * @time-complexity: O(n * (n - 1) / 2) (arithmetic sequence) ~ O(n^2), where n is the nb of elts in the list
 */
 export function bubbleSort(list: any[]) {
-  let swapped = true
-  let lastIdx = list.length - 1
   //at each pass, we decrement lastIdx by 1 because the last elt will be sorted
-  for (lastIdx; lastIdx >= 1; lastIdx--) {
-    swapped = false
+  for (let lastIdx = list.length - 1; lastIdx >= 1; lastIdx--) {
+    let swapped = false
     //at each pass, we compare elts with the next one, so idx stops at lastIdx - 1
     for (let idx = 0; idx < lastIdx; idx++) {
       if (list[idx] > list[idx + 1]) {
