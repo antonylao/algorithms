@@ -5,16 +5,16 @@
   * @notes: stable, in-place (mutation of unsorted list)
   * @time-complexity: O(n * (n-1) / 2) (arithmetic sequence) ~ O(n^2), where n is the number of elts of the unsorted list
 */
-export function insertionSort(unsortedList: any[]) {
-  unsortedList.forEach(function swapWithLeftEltUntilLeftIsSmaller(elt, eltOriginalIdx) {
+export function insertionSort(list: any[]) {
+  list.forEach(function swapWithLeftEltUntilLeftIsSmaller(elt, eltOriginalIdx) {
     for (let currentEltIdx = eltOriginalIdx; currentEltIdx > 0; currentEltIdx--) {
-      let eltAtIdxMinusOne = unsortedList[currentEltIdx - 1]
+      let eltAtIdxMinusOne = list[currentEltIdx - 1]
       if (eltAtIdxMinusOne > elt) {
         //swap elt with the one before it
         // unsortedList[currentEltIdx - 1] = elt
         // unsortedList[currentEltIdx] = eltAtIdxMinusOne
         //NB: swapping shorthand
-        [unsortedList[currentEltIdx - 1], unsortedList[currentEltIdx]] = [unsortedList[currentEltIdx], unsortedList[currentEltIdx - 1]]
+        [list[currentEltIdx - 1], list[currentEltIdx]] = [list[currentEltIdx], list[currentEltIdx - 1]]
       } else {
         //stop the loop
         break;
@@ -22,7 +22,7 @@ export function insertionSort(unsortedList: any[]) {
     }
   })
 
-  return unsortedList
+  return list
 }
 
 
@@ -34,7 +34,7 @@ export function insertionSort(unsortedList: any[]) {
   * add 1 to startIdxUnsorted (we have sorted one more elt, so the unsorted pile shrinks by 1) 
   * continue until startIdxUnsorted > last index of unsortedList
   *
-  * @notes: NOT stable (elt at startIdxUnsorted can be swapped with an elt equal to it from the unsorted pile), 
+  * @notes: NOT stable (elt at startIdxUnsorted can be swapped with an elt from any idx from the unsorted pile), 
   * in-place (mutation of unsorted list)
   *
   * @time-complexity: O(n * (n+1) / 2) (arithmetic sequence) ~ O(n^2), where n is the number of elts of the unsorted list
@@ -70,23 +70,23 @@ export function selectionSort(list: any[]) {
   * return list
   *
   * @notes: stable, in-place
-  * @time-complexity: O(n * (n - 1) / 2) (arithmetic sequence) ~ O(n^2)
+  * @time-complexity: O(n * (n - 1) / 2) (arithmetic sequence) ~ O(n^2), where n is the nb of elts in the list
 */
-export function bubbleSort(unsortedList: any[]) {
+export function bubbleSort(list: any[]) {
   let swapped = true
-  let lastIdx = unsortedList.length - 1
+  let lastIdx = list.length - 1
   //at each pass, we decrement lastIdx by 1 because the last elt will be sorted
   for (lastIdx; lastIdx >= 1; lastIdx--) {
     swapped = false
     //at each pass, we compare elts with the next one, so idx stops at lastIdx - 1
     for (let idx = 0; idx < lastIdx; idx++) {
-      if (unsortedList[idx] > unsortedList[idx + 1]) {
+      if (list[idx] > list[idx + 1]) {
         swapped = true;
-        [unsortedList[idx], unsortedList[idx + 1]] = [unsortedList[idx + 1], unsortedList[idx]]
+        [list[idx], list[idx + 1]] = [list[idx + 1], list[idx]]
       }
     }
     //is swapped is false, the list is sorted
-    if (swapped === false) {return unsortedList}
+    if (swapped === false) {return list}
   }
-  return unsortedList
+  return list
 }
