@@ -1,6 +1,3 @@
-export function sortToTest(unsortedList: any[]) {
-  return bubbleSort(unsortedList)
-}
 
 /*
   * @algorithm: 
@@ -42,24 +39,24 @@ export function insertionSort(unsortedList: any[]) {
   *
   * @time-complexity: O(n * (n+1) / 2) (arithmetic sequence) ~ O(n^2), where n is the number of elts of the unsorted list
 */
-export function selectionSort(unsortedList: any[]) {
-  for (let startIdxUnsorted = 0; startIdxUnsorted < unsortedList.length; startIdxUnsorted++) {
-    let minEltIdx = startIdxUnsorted
-    for (let currentIdx = startIdxUnsorted; currentIdx < unsortedList.length; currentIdx++) {
-      const currentMinElt = unsortedList[minEltIdx]
-      const currentElt = unsortedList[currentIdx]
-      if (currentElt < currentMinElt) {
-        minEltIdx = currentIdx
+export function selectionSort(list: any[]) {
+  //for firstIdxUnsortedPile from beginning of list to end
+  list.forEach(function SwapMinEltWithFirstEltOfUnsortedPile(_, firstIdxUnsortedPile) {
+    // initialize currentIdxOfMin to first index of unsorted pile
+    let currentIdxOfMin = firstIdxUnsortedPile
+    // for currentIdx from firstIdxUnsortedPile + 1 to end of list
+    for (let currentIdx = firstIdxUnsortedPile + 1; currentIdx < list.length; currentIdx++) {
+      //   if elt at currentIdx < elt at currentIdxOfMin, replace currentIdxOfMin by currentIdx  
+      if (list[currentIdx] < list[currentIdxOfMin]) {
+        currentIdxOfMin = currentIdx
       }
     }
-
-    [unsortedList[startIdxUnsorted], unsortedList[minEltIdx]] = [unsortedList[minEltIdx], unsortedList[startIdxUnsorted]]
-  }
-
-  return unsortedList
+    // exchange elts at currentIdxOfMin and firstIdxUnsortedPile 
+    [list[firstIdxUnsortedPile], list[currentIdxOfMin]] = [list[currentIdxOfMin], list[firstIdxUnsortedPile]]
+  })
+  //return list  
+  return list
 }
-
-
 
 /*
   * @algorithm: 
