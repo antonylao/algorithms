@@ -79,6 +79,8 @@ export function bubbleSort(list: any[]) {
     //at each pass, we compare elts with the next one, so idx stops at lastIdx - 1
     for (let idx = 0; idx < lastIdx; idx++) {
       if (list[idx] > list[idx + 1]) {
+        //NB: we use a semicolon because the following line starts with [, 
+        //    and so JS doesn't add a semicolon automatically
         swapped = true;
         [list[idx], list[idx + 1]] = [list[idx + 1], list[idx]]
       }

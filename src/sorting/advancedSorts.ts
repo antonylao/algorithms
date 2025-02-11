@@ -89,7 +89,7 @@ export function mergeSort(list: any[]) {
 */
 export function quickSort(list: any[], startIdx = 0, endIdx = list.length - 1, log = false) {
   if (log) {
-    console.log("list currently under sort is:")
+    console.log(`list currently under sort is from ${startIdx} to ${endIdx}:`)
     console.log(list.slice(startIdx, endIdx + 1))
   }
   // - if the startIdx and endIdx makes the sorting of 1 elt or less, return the list (base case of recursion)
@@ -142,11 +142,11 @@ export function quickSort(list: any[], startIdx = 0, endIdx = list.length - 1, l
     }
     // - swap elts at left and right pointers
     if (leftPtr !== rightPtr) {
-      const temp = list[leftPtr]
-      list[leftPtr] = list[rightPtr]
-      list[rightPtr] = temp
-      //why this doesn't work??
-      //[list[leftPtr], list[rightPtr]] = [list[rightPtr], list[leftPtr]]
+      //const temp = list[leftPtr]
+      //list[leftPtr] = list[rightPtr]
+      //list[rightPtr] = temp
+      //why this doesn't work sometimes ??
+      [list[leftPtr], list[rightPtr]] = [list[rightPtr], list[leftPtr]]
       if (log === true) {
         console.log("exchange left and right ptr")
         console.log(String.fromCodePoint(0x1F919) + " advancedSorts.ts ~ list: ")
@@ -155,11 +155,11 @@ export function quickSort(list: any[], startIdx = 0, endIdx = list.length - 1, l
     }
   }
   //swap pivot elt and elt pointed by both pointers
-  const temp = list[leftPtr]
-  list[leftPtr] = list[pivotIdx]
-  list[pivotIdx] = temp
-  //why this doesn't work??
-  //[list[leftPtr], list[pivotIdx]] = [list[pivotIdx], list[leftPtr]]
+  //const temp = list[leftPtr]
+  //list[leftPtr] = list[pivotIdx]
+  //list[pivotIdx] = temp
+  //why this doesn't work sometimes ??
+  [list[leftPtr], list[pivotIdx]] = [list[pivotIdx], list[leftPtr]]
   if (log) {
     console.log("exchange pivot")
     console.log(String.fromCodePoint(0x1F919) + " advancedSorts.ts ~ list: ")
