@@ -1,26 +1,26 @@
 import {describe, it, expect} from "@jest/globals"
-import {LinkedListTest, LinkedListNodeTest} from "./linkedListTest"
+import {LinkedListToTest, LinkedListNodeToTest} from "./linkedListPractice"
 
 describe("reverse", () => {
   it("reverses the linked list", () => {
     //setup
-    const headNode = new LinkedListNodeTest(4, null)
-    headNode.next = new LinkedListNodeTest(
+    const headNode = new LinkedListNodeToTest(4, null)
+    headNode.next = new LinkedListNodeToTest(
       3,
-      new LinkedListNodeTest(
+      new LinkedListNodeToTest(
         2,
-        new LinkedListNodeTest(
+        new LinkedListNodeToTest(
           1, null)
       )
     )
 
-    const linkedListFromClass = new LinkedListTest()
+    const linkedListFromClass = new LinkedListToTest()
     linkedListFromClass.head = headNode
     //apply
     linkedListFromClass.reverse()
-    const expected = new LinkedListTest()
+    const expected = new LinkedListToTest()
     expected.head =
-      new LinkedListNodeTest(1, new LinkedListNodeTest(2, new LinkedListNodeTest(3, new LinkedListNodeTest(4, null))))
+      new LinkedListNodeToTest(1, new LinkedListNodeToTest(2, new LinkedListNodeToTest(3, new LinkedListNodeToTest(4, null))))
     //test
     expect(linkedListFromClass).toStrictEqual(expected)
   })
