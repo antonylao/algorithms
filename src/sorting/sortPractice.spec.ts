@@ -1,5 +1,5 @@
 import {describe, expect, it, } from "@jest/globals";
-import {sortToTest} from "./testSort";
+import {sortToTest} from "./sortPractice";
 
 describe("sortToTest()", () => {
   it("sorts the list", () => {
