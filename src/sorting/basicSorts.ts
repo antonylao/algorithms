@@ -73,11 +73,11 @@ export function selectionSort(list: any[]) {
   * @time-complexity: O(n * (n - 1) / 2) (arithmetic sequence) ~ O(n^2), where n is the nb of elts in the list
 */
 export function bubbleSort(list: any[]) {
-  //at each pass, we decrement lastIdx by 1 because the last elt will be sorted
-  for (let lastIdx = list.length - 1; lastIdx >= 1; lastIdx--) {
+  //at each pass, we decrement endIdxUnsorted by 1 because the last elt will be sorted
+  for (let endIdxUnsorted = list.length - 1; endIdxUnsorted >= 1; endIdxUnsorted--) {
     let swapped = false
-    //at each pass, we compare elts with the next one, so idx stops at lastIdx - 1
-    for (let idx = 0; idx < lastIdx; idx++) {
+    //at each pass, we compare elts with the next one, so idx stops at endIdxUnsorted - 1
+    for (let idx = 0; idx < endIdxUnsorted; idx++) {
       if (list[idx] > list[idx + 1]) {
         //NB: we use a semicolon because the following line starts with [, 
         //    and so JS doesn't add a semicolon automatically
@@ -86,7 +86,7 @@ export function bubbleSort(list: any[]) {
       }
     }
     //is swapped is false, the list is sorted
-    if (swapped === false) {return list}
+    if (!swapped) {break}
   }
   return list
 }
