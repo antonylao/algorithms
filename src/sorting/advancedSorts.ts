@@ -99,7 +99,7 @@ export function quickSort(list: any[], startIdx = 0, endIdx = list.length - 1, l
   const pivotIdx = endIdx
 
   // - initialize 2 pointers, pointing before the first element and after the last (for us, the idx of the pivot) 
-  let leftPtr = startIdx - 1;
+  let leftPtr = startIdx;
   let rightPtr = pivotIdx
   if (log) {
     console.log(String.fromCodePoint(0x1F919) + " advancedSorts.ts ~ leftPtr: ")
@@ -117,8 +117,7 @@ export function quickSort(list: any[], startIdx = 0, endIdx = list.length - 1, l
   }
   // - move left pointer to the right while the elt pointed is below the pivot
   while (leftPtr !== rightPtr) {
-    while (leftPtr === startIdx - 1 || list[leftPtr] < list[pivotIdx]) {
-      if (leftPtr === rightPtr) {break}
+    while (list[leftPtr] < list[pivotIdx] && leftPtr !== rightPtr) {
       leftPtr++
       if (log) {
         console.log(String.fromCodePoint(0x1F919) + / advancedSorts.ts ~ list[leftPtr]: /.source)
@@ -129,8 +128,7 @@ export function quickSort(list: any[], startIdx = 0, endIdx = list.length - 1, l
       }
     }
     // - move right pointer to the left while the elt pointed is above or equal the pivot
-    while (list[rightPtr] >= list[pivotIdx]) {
-      if (leftPtr === rightPtr) {break}
+    while (list[rightPtr] >= list[pivotIdx] && leftPtr !== rightPtr) {
       rightPtr--
       if (log) {
         console.log(String.fromCodePoint(0x1F919) + / advancedSorts.ts ~ list[rightPtr]: /.source)
@@ -165,7 +163,7 @@ export function quickSort(list: any[], startIdx = 0, endIdx = list.length - 1, l
     console.log(String.fromCodePoint(0x1F919) + " advancedSorts.ts ~ list: ")
     console.log(list)
   }
-  //sort left and right side of pivot
+  //sort left and right side of pivot, which is now at the leftPtr idx after the swap
   quickSort(list, startIdx, leftPtr - 1, log)
   quickSort(list, leftPtr + 1, endIdx, log)
   //return the list

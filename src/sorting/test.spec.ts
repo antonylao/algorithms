@@ -4,7 +4,7 @@ import {sortToTest} from "./testSort";
 describe("sortToTest()", () => {
   it("sorts the list", () => {
     //setup
-    const unsortedList1 = [2, 5, 3, 1, 4]
+    const unsortedList1 = [5, 3, 1, 2, 4]
     const unsortedList2 = [1, 2, 4, 5, 8, 9, 7, 3, 6]
     //apply
     const sortedList1 = sortToTest(unsortedList1)

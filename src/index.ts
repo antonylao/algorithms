@@ -1,4 +1,4 @@
-import {LinkedListClass, linkedListFromClass, linkedListLiteral, LinkedListNode, LinkedListNodeClass, reverse} from "./data-struct/linkedList";
+import {LinkedListClass, linkedListFromClass, linkedListLiteral, LinkedListNode, LinkedListNodeClass, reverseIterative} from "./data-struct/linkedList";
 import {sortToTest} from "./sorting/testSort";
 
 export function myFunc() {
@@ -10,6 +10,6 @@ export function myFunc() {
 //console.log(String.fromCodePoint(0x1F919) + / index.ts ~ sortToTest([2, 5, 3, 1, 4]): /.source)
 //console.log(sortToTest([2, 5, 3, 1, 4]))
 
-linkedListFromClass.print()
-linkedListFromClass.reverse()
-linkedListFromClass.print()
+//linkedListFromClass.print()
+//linkedListFromClass.reverseIterative()
+//linkedListFromClass.print()
