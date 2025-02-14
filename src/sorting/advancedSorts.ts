@@ -48,7 +48,7 @@ export function mergeSort(list: any[]) {
 
   //while neither pointer are at the end of the list, push the min elt from either one pointer, and increment thus pointer by 1
   while (leftListCurrentIdx <= leftListLastIdx && rightListCurrentIdx <= rightListLastIdx) {
-    if (leftList[leftListCurrentIdx] < rightList[rightListCurrentIdx]) {
+    if (leftList[leftListCurrentIdx] <= rightList[rightListCurrentIdx]) {
       sortedList.push(leftList[leftListCurrentIdx]);
       leftListCurrentIdx++
     } else {
