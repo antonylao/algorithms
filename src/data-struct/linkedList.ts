@@ -30,7 +30,12 @@ export class LinkedListClass {
   }
 
   reverseIterative() {
+    //for clarity only, doesn't change the function behavior
+    if (this.head === null) {return }
+
     let currentNode: LinkedListNodeClass | null = this.head
+    console.log(String.fromCodePoint(0x1F919) + " linkedList.ts ~ currentNode: ")
+    console.log(currentNode)
     let previousNode = null
     let currentNext: LinkedListNodeClass;
     while (currentNode !== null) {
@@ -50,7 +55,7 @@ export class LinkedListClass {
 
   reverseRecursive(currentNode = this.head) {
     //this condition should happen only if the head is null)
-    if (currentNode === null) {
+    if (this.head === null) {
       return
     }
 
@@ -69,6 +74,42 @@ export class LinkedListClass {
     nextNode.next = currentNode
     //link the current node 'next' to null
     currentNode.next = null
+  }
+
+  //assumes the linkedList doesn't contain a cycle, if it does, will run forever
+  middleNode() {
+    //for clarity only, doesn't change the function behavior
+    //if the head is null, will return null because if will not enter the loop 
+    if (this.head === null) {return }
+
+    let slowPtr = this.head
+    let fastPtr = this.head
+
+    while (fastPtr !== null && fastPtr.next !== null) {
+      slowPtr = slowPtr.next
+      fastPtr = fastPtr.next.next
+    }
+
+    return slowPtr
+  }
+
+  isCycle(): boolean {
+    //for clarity only, doesn't change the function behavior
+    //if head is null, will not enter the loop and return false
+    if (this.head === null) {return }
+
+    let slowPtr = this.head
+    let fastPtr = this.head
+
+    //do not put the condition slowPtr !== fastPtr here! will not enter the loop because both are head at this point
+    while (fastPtr !== null && fastPtr.next !== null) {
+      slowPtr = slowPtr.next
+      fastPtr = fastPtr.next.next //possible error if fastPtr.next is null?
+      //=== on objects returns true only if the objects are the same
+      if (slowPtr === fastPtr) {return true}
+    }
+
+    return false
   }
 }
 

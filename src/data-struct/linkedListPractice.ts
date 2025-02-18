@@ -1,3 +1,5 @@
+import {LinkedListClass} from "./linkedList";
+
 export class LinkedListNodeToTest {
   val: any;
   next: LinkedListNodeToTest | null
@@ -16,7 +18,12 @@ export class LinkedListToTest {
   }
 
   reverse() {
-    //TODO
+  }
+
+  middleNode() {
+  }
+
+  isCycle() {
   }
 }
 

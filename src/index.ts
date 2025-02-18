@@ -15,11 +15,44 @@ import {sortToTest} from "./sorting/sortPractice";
 //linkedListTest.head = headNode
 
 //with class
-//exampleLinkedListFromClass.reverseRecursive()
-//exampleLinkedListFromClass.print()
+/*
+exampleLinkedListFromClass.reverseRecursive()
+exampleLinkedListFromClass.print()
+const firstNode = exampleLinkedListFromClass.head
+const beforeNode = new LinkedListNodeClass(0, firstNode)
+exampleLinkedListFromClass.head = beforeNode
+exampleLinkedListFromClass.print()
+const middleNode = exampleLinkedListFromClass.middleNode()
+console.log(String.fromCodePoint(0x1F919) + " index.ts ~ middleNode: ")
+console.log(middleNode)
+console.log(exampleLinkedListFromClass.isCycle())
+console.log("creating a cycle...")
+middleNode.next = firstNode
+console.log(String.fromCodePoint(0x1F919) + " index.ts ~ middleNode: ")
+console.log(middleNode)
+console.log(exampleLinkedListFromClass.isCycle())
+console.log("with an empty linked list:")
+const emptyLinkedListFromClass = new LinkedListClass()
+console.log(String.fromCodePoint(0x1F919) + " index.ts ~ emptyLinkedListFromClass: ")
+console.log(emptyLinkedListFromClass)
+emptyLinkedListFromClass.reverseIterative()
+console.log("reverseIterative applied")
+console.log(String.fromCodePoint(0x1F919) + " index.ts ~ emptyLinkedListFromClass: ")
+console.log(emptyLinkedListFromClass)
+emptyLinkedListFromClass.reverseRecursive()
+console.log("reverseRecursive applied")
+console.log(String.fromCodePoint(0x1F919) + " index.ts ~ emptyLinkedListFromClass: ")
+console.log(emptyLinkedListFromClass)
+console.log(String.fromCodePoint(0x1F919) + / index.ts ~ emptyLinkedListFromClass.middleNode(): /.source)
+console.log(emptyLinkedListFromClass.middleNode())
+console.log(String.fromCodePoint(0x1F919) + / index.ts ~ emptyLinkedListFromClass.isCycle(): /.source)
+console.log(emptyLinkedListFromClass.isCycle())
+*/
+
 //with literal
 //console.log(JSON.stringify(exampleLinkedListLiteral))
 //console.log(JSON.stringify(reverseRecursive(exampleLinkedListLiteral)))
+//
 //with function
 //const linkedListFromFn = new LinkedListNodeFunction(3, null)
 //const linkedListFromFn2 = new LinkedListNodeFunction(4, null)
@@ -30,5 +63,4 @@ import {sortToTest} from "./sorting/sortPractice";
 //linkedList.print()
 //LinkedListFunction.linkFirstTwoElts(linkedListFromFn, linkedListFromFn2)
 //console.log(LinkedListFunction.linkFirstTwoElts(linkedListFromFn, linkedListFromFn2))
-
 
