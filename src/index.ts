@@ -1,6 +1,7 @@
 import {LinkedListClass, LinkedListNodeType, LinkedListNodeClass, reverseIterative, reverseRecursive, exampleLinkedListFromClass, exampleLinkedListLiteral, LinkedListFunction, LinkedListNodeFunction} from "./data-struct/linkedList";
 import {LinkedListNodeToTest, LinkedListToTest} from "./data-struct/linkedListPractice";
 import {sortToTest} from "./sorting/sortPractice";
+import {removeDuplicates} from "./two-pointers/twoPointersSameDirection";
 
 //SORT
 //console.log(String.fromCodePoint(0x1F919) + / index.ts ~ sortToTest([1, 4, 2]): /.source)
@@ -63,4 +64,11 @@ console.log(emptyLinkedListFromClass.isCycle())
 //linkedList.print()
 //LinkedListFunction.linkFirstTwoElts(linkedListFromFn, linkedListFromFn2)
 //console.log(LinkedListFunction.linkFirstTwoElts(linkedListFromFn, linkedListFromFn2))
+
+//TWO-POINTERS
+//const list = [0, 0, 1, 1, 1, 2, 2]
+//console.log(String.fromCodePoint(0x1F919) + / index.ts ~ removeDuplicates([0, 0, 1, 1, 1, 2, 2]) (must be 3): /.source)
+//console.log(removeDuplicates(list))
+//console.log(String.fromCodePoint(0x1F919) + " index.ts ~ list: ")
+//console.log(list)
 

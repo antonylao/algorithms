@@ -6,3 +6,5 @@ export function sortToTest(unsortedList: any[]) {
     insertionSort(unsortedList)
   )
 }
+
+
