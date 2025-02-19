@@ -76,7 +76,11 @@ export class LinkedListClass {
     currentNode.next = null
   }
 
-  //assumes the linkedList doesn't contain a cycle, if it does, will run forever
+  /*
+    * @requirements: assumes the linkedList doesn't contain a cycle, if it does, will run forever
+    * @time-complexity: O(n/2) ~ O(n)
+    * @space-complexity: O(1)
+  */
   middleNode() {
     //for clarity only, doesn't change the function behavior
     //if the head is null, will return null because if will not enter the loop 
