@@ -34,8 +34,6 @@ export class LinkedListClass {
     if (this.head === null) {return }
 
     let currentNode: LinkedListNodeClass | null = this.head
-    console.log(String.fromCodePoint(0x1F919) + " linkedList.ts ~ currentNode: ")
-    console.log(currentNode)
     let previousNode = null
     let currentNext: LinkedListNodeClass;
     while (currentNode !== null) {

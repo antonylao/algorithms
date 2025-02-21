@@ -8,16 +8,7 @@
   * @time-complexity: O(n)
   * @space-complexity: 0(1)
 */
-
 export function removeDuplicates(sortedListAsc) {
-  let slowPtr = 0
-  sortedListAsc.forEach(function replaceDuplicateNextToSlowPtr(_, fastPtr) {
-    if (sortedListAsc[slowPtr] !== sortedListAsc[fastPtr]) {
-      slowPtr++
-      sortedListAsc[slowPtr] = sortedListAsc[fastPtr]
-    }
-  })
-  return slowPtr + 1
 }
 
 
