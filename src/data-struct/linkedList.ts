@@ -29,7 +29,7 @@ export class LinkedListClass {
     console.log()
   }
 
-  reverseIterative() {
+  reverseIterative(): void {
     //for clarity only, doesn't change the function behavior
     if (this.head === null) {return }
 
@@ -51,7 +51,7 @@ export class LinkedListClass {
     this.head = previousNode
   }
 
-  reverseRecursive(currentNode = this.head) {
+  reverseRecursive(currentNode = this.head): void {
     //this condition should happen only if the head is null)
     if (this.head === null) {
       return
@@ -82,7 +82,7 @@ export class LinkedListClass {
   middleNode() {
     //for clarity only, doesn't change the function behavior
     //if the head is null, will return null because if will not enter the loop 
-    if (this.head === null) {return }
+    if (this.head === null) {return null}
 
     let slowPtr = this.head
     let fastPtr = this.head
@@ -98,7 +98,7 @@ export class LinkedListClass {
   isCycle(): boolean {
     //for clarity only, doesn't change the function behavior
     //if head is null, will not enter the loop and return false
-    if (this.head === null) {return }
+    if (this.head === null) {return false}
 
     let slowPtr = this.head
     let fastPtr = this.head
@@ -106,7 +106,7 @@ export class LinkedListClass {
     //do not put the condition slowPtr !== fastPtr here! will not enter the loop because both are head at this point
     while (fastPtr !== null && fastPtr.next !== null) {
       slowPtr = slowPtr.next
-      fastPtr = fastPtr.next.next //possible error if fastPtr.next is null?
+      fastPtr = fastPtr.next.next
       //=== on objects returns true only if the objects are the same
       if (slowPtr === fastPtr) {return true}
     }
