@@ -31,7 +31,7 @@ export function removeDuplicates(sortedListAsc) {
 */
 export function moveZerosToTheEnd(arr) {
   let slowPtr = 0
-  arr.forEach(function TODO(elt, fastPtr) {
+  arr.forEach(function swapZeroToFastPtrPosition(elt, fastPtr) {
     if (arr[fastPtr] !== 0) {
       [arr[slowPtr], arr[fastPtr]] = [arr[fastPtr], arr[slowPtr]]
       slowPtr++

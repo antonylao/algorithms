@@ -13,7 +13,7 @@ export function PRemoveDuplicates(sortedListAsc) {
 
 /*
   * @input: list<integers> 
-  * @output: same list 
+  * @output: undefined, or list 
   *        
   * @requirements:
   * - moves 0s to the end of the list
