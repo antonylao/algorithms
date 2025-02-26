@@ -10,7 +10,7 @@
 */
 export function removeDuplicates(sortedListAsc) {
   let slowPtr = 0
-  sortedListAsc.forEach(function replaceDuplicateNextToSlowPtr(_, fastPtr) {
+  sortedListAsc.forEach(function replaceConsecutiveDuplicates(_, fastPtr) {
     if (sortedListAsc[slowPtr] !== sortedListAsc[fastPtr]) {
       slowPtr++
       sortedListAsc[slowPtr] = sortedListAsc[fastPtr]
