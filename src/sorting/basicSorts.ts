@@ -1,5 +1,4 @@
 
-
 /*
   * @algorithm: 
   * for each item (from 2nd item) (NB: keep track of 'current' index), swap it to the one on the left until it is smaller or the index of the item is 0
