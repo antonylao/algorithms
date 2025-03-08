@@ -100,6 +100,10 @@ export function quickSort(list: any[], startIdx = 0, endIdx = list.length - 1, l
 
   // - initialize 2 pointers, pointing before the first element and after the last (for us, the idx of the pivot) 
   let leftPtr = startIdx;
+  //we will only consider up to endIdx - 1, 
+  //but we have to initialize to one more otherwise the last elt will not be checked by leftPtr condition
+  //ex: [4, 2, 1, 5]. 5 is the pivot, but if we initialize rightPtr to endIdx - 1, we will exchange 1 and 5 -> [4, 2, 5, 1] 
+  //(error because one of the elts at the right side of pivot is not < pivot
   let rightPtr = pivotIdx
   if (log) {
     console.log(String.fromCodePoint(0x1F919) + " advancedSorts.ts ~ leftPtr: ")
@@ -128,6 +132,7 @@ export function quickSort(list: any[], startIdx = 0, endIdx = list.length - 1, l
       }
     }
     // - move right pointer to the left while the elt pointed is above or equal the pivot
+    // we must use >= because at first list[rightPtr] === list[pivotIdx], otherwise we will never satisfy the condition
     while (list[rightPtr] >= list[pivotIdx] && leftPtr !== rightPtr) {
       rightPtr--
       if (log) {
