@@ -3,6 +3,7 @@
   * for each item (from 2nd item) (NB: keep track of 'current' index), swap it to the one on the left until it is smaller or the index of the item is 0
   * @notes: stable, in-place (mutation of unsorted list)
   * @time-complexity: O(n * (n-1) / 2) (arithmetic sequence) ~ O(n^2), where n is the number of elts of the unsorted list
+  * @space-complexity: O(1) (no extra space used)
 */
 export function insertionSort(list: any[]) {
   list.forEach(function swapWithLeftEltUntilLeftIsSmaller(elt, eltOriginalIdx) {
@@ -36,6 +37,7 @@ export function insertionSort(list: any[]) {
   * in-place (mutation of unsorted list)
   *
   * @time-complexity: O(n * (n+1) / 2) (arithmetic sequence) ~ O(n^2), where n is the number of elts of the unsorted list
+  * @space-complexity: O(1) (no extra space used)
 */
 export function selectionSort(list: any[]) {
   //for firstIdxUnsortedPile from beginning of list to end
@@ -69,6 +71,7 @@ export function selectionSort(list: any[]) {
   *
   * @notes: stable, in-place
   * @time-complexity: O(n * (n - 1) / 2) (arithmetic sequence) ~ O(n^2), where n is the nb of elts in the list
+  * @space-complexity: O(1) (no extra space used)
 */
 export function bubbleSort(list: any[]) {
   //at each pass, we decrement endIdxUnsorted by 1 because the last elt will be sorted
@@ -84,7 +87,7 @@ export function bubbleSort(list: any[]) {
       }
     }
     //is swapped is false, the list is sorted
-    if (!swapped) {break}
+    if (!swapped) { break }
   }
   return list
 }
